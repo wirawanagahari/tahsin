@@ -64,9 +64,79 @@ footer.note{ margin-top:20px; font-size:10.5px; color:#a39a86; text-align:center
     .dim-icon{ width:56px; }
     .pcard-icon{ width:34px; }
   }
+
+#siteNav{
+  position:sticky; top:0; z-index:200;
+  background:#fffdf6; border-bottom:1px solid #d8ccac;
+  box-shadow:0 1px 4px rgba(28,43,35,0.06);
+  font-family:'Zilla Slab', sans-serif;
+}
+#siteNav .nav-inner{
+  max-width:1080px; margin:0 auto; padding:0 16px;
+  display:flex; align-items:center; justify-content:space-between;
+  height:50px;
+}
+#siteNav .nav-brand{
+  display:flex; align-items:center; gap:8px;
+  text-decoration:none; color:#1c2b23; font-weight:700; font-size:14.5px;
+  white-space:nowrap;
+}
+#siteNav .nav-brand .dot{
+  width:9px; height:9px; border-radius:50%; background:#7a2b23; flex-shrink:0;
+}
+#siteNav .nav-toggle{
+  display:flex; align-items:center; gap:6px;
+  background:#efe6d0; border:1px solid #d8ccac; border-radius:8px;
+  padding:7px 12px; font-family:'Zilla Slab', sans-serif; font-size:13px; font-weight:600;
+  color:#1c2b23; cursor:pointer; -webkit-tap-highlight-color:transparent;
+}
+#siteNav .nav-toggle:active{ background:#d8ccac; }
+#siteNav .nav-toggle .bars{ font-size:14px; line-height:1; }
+
+#siteNav .nav-panel{
+  position:absolute; right:12px; top:56px;
+  width:300px; max-width:calc(100vw - 24px);
+  background:#fffdf6; border:1px solid #d8ccac; border-radius:12px;
+  box-shadow:0 8px 24px rgba(28,43,35,0.18);
+  padding:10px; display:none; max-height:80vh; overflow-y:auto;
+}
+#siteNav .nav-panel.open{ display:block; }
+#siteNav .nav-home{
+  display:block; padding:9px 10px; border-radius:8px; text-decoration:none;
+  color:#1c2b23; font-weight:700; font-size:13.5px; margin-bottom:4px;
+  border:1px solid #d8ccac; background:#efe6d0;
+}
+#siteNav .nav-group{ margin:10px 2px 4px; }
+#siteNav .nav-group-label{
+  font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.4px;
+  color:#b9902f; padding:0 8px; margin-bottom:4px;
+}
+#siteNav .nav-link{
+  display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:8px;
+  text-decoration:none; color:#1c2b23; font-size:13.5px; line-height:1.3;
+}
+#siteNav .nav-link:hover, #siteNav .nav-link:active{ background:#efe6d0; }
+#siteNav .nav-link .nav-dot{ width:6px; height:6px; border-radius:50%; background:#d8ccac; flex-shrink:0; }
+#siteNav .nav-link.active{ background:#efe6d0; font-weight:700; color:#7a2b23; }
+#siteNav .nav-link.active .nav-dot{ background:#7a2b23; }
+#siteNav .nav-backdrop{
+  position:fixed; inset:0; background:rgba(28,43,35,0.25); z-index:190; display:none;
+}
+#siteNav .nav-backdrop.open{ display:block; }
 </style>
 </head>
 <body>
+<nav id="siteNav">
+  <div class="nav-backdrop" id="navBackdrop"></div>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html"><span class="dot"></span>Koleksi Infografis Tajwid</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi"><span class="bars">&#9776;</span> Menu</button>
+  </div>
+  <div class="nav-panel" id="navPanel">
+    <a class="nav-home" href="index.html">&#8962;&nbsp; Beranda — Semua Infografis</a><div class="nav-group"><div class="nav-group-label">Makharijul Huruf & Sifat-Sifatnya</div><a class="nav-link" href="infografis-makharijul-huruf-sifat.html"><span class="nav-dot"></span>Referensi Lengkap</a><a class="nav-link" href="infografis-makharijul-huruf-visual.html"><span class="nav-dot"></span>Peta Interaktif</a><a class="nav-link active" href="infografis-sifat-huruf-hijaiyah.html"><span class="nav-dot"></span>Sifat — 3 Dimensi Fisik</a></div><div class="nav-group"><div class="nav-group-label">Ra’ — Tafkhim & Tarqiq</div><a class="nav-link" href="infografis-ra-tafkhim-tarqiq.html"><span class="nav-dot"></span>Referensi Lengkap</a><a class="nav-link" href="alur-ra-tafkhim-tarqiq.html"><span class="nav-dot"></span>Alur Berpikir (Flowchart)</a></div><div class="nav-group"><div class="nav-group-label">Hamzah Washal</div><a class="nav-link" href="hamzah-washal.html"><span class="nav-dot"></span>Alur Interaktif</a></div>
+  </div>
+</nav>
+
 <div class="sheet">
   <header>
     <h1>Sifat-Sifat Huruf Hijaiyah</h1>
@@ -168,5 +238,18 @@ footer.note{ margin-top:20px; font-size:10.5px; color:#a39a86; text-align:center
 
   <footer class="note">Pengelompokan huruf pada tiap sifat disusun dari data per-huruf yang tercantum di ebook "Makharijul Huruf dan Sifat-Sifatnya" (edisi revisi).</footer>
 </div>
+<script>
+(function(){
+  var btn = document.getElementById('navToggle');
+  var panel = document.getElementById('navPanel');
+  var backdrop = document.getElementById('navBackdrop');
+  if(!btn || !panel) return;
+  function close(){ panel.classList.remove('open'); backdrop.classList.remove('open'); }
+  function toggle(){ panel.classList.toggle('open'); backdrop.classList.toggle('open'); }
+  btn.addEventListener('click', function(e){ e.stopPropagation(); toggle(); });
+  backdrop.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+})();
+</script>
 </body>
 </html>

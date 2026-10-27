@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koleksi Infografis Tajwid — Ra' Tafkhim/Tarqiq &amp; Makharijul Huruf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Zilla+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b23; --paper:#f6f0e1; --paper-2:#efe6d0;
+    --tebal:#0e4d38; --tebal-tint:#e6eee8; --tebal-border:#c9dbce;
+    --tipis:#8a6a1e; --tipis-tint:#f3e7c4; --tipis-border:#d9c48c;
+    --maroon:#7a2b23; --maroon-tint:#f3e3df;
+    --gold:#b9902f; --muted:#6b6252; --cardbg:#fffdf6; --line:#d8ccac;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:'Zilla Slab', serif; -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:900px; margin:0 auto; padding:44px 28px 60px; }
+  .arabic{ font-family:'Amiri', serif; }
+
+  header{ text-align:center; padding-bottom:24px; border-bottom:3px double var(--gold); margin-bottom:34px; }
+  .glyph{ font-family:'Amiri', serif; font-size:52px; color:var(--maroon); line-height:1; margin-bottom:6px; }
+  header h1{ font-size:30px; margin:4px 0 8px; font-weight:700; }
+  header p{ margin:0 auto; max-width:620px; font-size:14.5px; color:var(--muted); line-height:1.55; }
+
+  .section-label{ font-size:12.5px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--gold); margin:34px 0 12px; padding-bottom:6px; border-bottom:1px solid var(--line); }
+  .section-label:first-of-type{ margin-top:0; }
+
+  .card{
+    display:flex; gap:16px; align-items:flex-start;
+    background:var(--cardbg); border:1px solid var(--line); border-radius:10px;
+    padding:18px 20px; margin-bottom:14px; text-decoration:none; color:inherit;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .card:hover{ border-color:var(--gold); transform:translateY(-1px); }
+  .card .icon{
+    width:46px; height:46px; border-radius:10px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Amiri', serif; font-size:24px; color:#fff;
+  }
+  .card .body{ flex:1; }
+  .card h2{ font-size:16.5px; margin:0 0 4px; font-weight:700; color:var(--ink); }
+  .card p{ font-size:12.5px; color:var(--muted); margin:0 0 8px; line-height:1.45; }
+  .card .tags{ display:flex; gap:6px; flex-wrap:wrap; }
+  .card .tag{ font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; background:var(--paper-2); color:var(--muted); }
+  .card .arrow{ align-self:center; font-size:18px; color:var(--gold); flex-shrink:0; }
+
+  .icon.ra{ background:var(--tebal); }
+  .icon.flow{ background:var(--maroon); }
+  .icon.makh{ background:#2a6f7d; }
+  .icon.sifat{ background:var(--tipis); }
+  .icon.hamzah{ background:#8a3b6b; }
+
+  footer{ margin-top:40px; font-size:11px; color:#a39a86; text-align:center; line-height:1.6; }
+
+  @media (max-width:480px){
+    .wrap{ padding:28px 16px 40px; }
+    header h1{ font-size:24px; }
+    .card{ padding:14px 14px; gap:12px; }
+    .card h2{ font-size:15px; }
+    .card .icon{ width:38px; height:38px; font-size:19px; }
+  }
+
+#siteNav{
+  position:sticky; top:0; z-index:200;
+  background:#fffdf6; border-bottom:1px solid #d8ccac;
+  box-shadow:0 1px 4px rgba(28,43,35,0.06);
+  font-family:'Zilla Slab', sans-serif;
+}
+#siteNav .nav-inner{
+  max-width:1080px; margin:0 auto; padding:0 16px;
+  display:flex; align-items:center; justify-content:space-between;
+  height:50px;
+}
+#siteNav .nav-brand{
+  display:flex; align-items:center; gap:8px;
+  text-decoration:none; color:#1c2b23; font-weight:700; font-size:14.5px;
+  white-space:nowrap;
+}
+#siteNav .nav-brand .dot{
+  width:9px; height:9px; border-radius:50%; background:#7a2b23; flex-shrink:0;
+}
+#siteNav .nav-toggle{
+  display:flex; align-items:center; gap:6px;
+  background:#efe6d0; border:1px solid #d8ccac; border-radius:8px;
+  padding:7px 12px; font-family:'Zilla Slab', sans-serif; font-size:13px; font-weight:600;
+  color:#1c2b23; cursor:pointer; -webkit-tap-highlight-color:transparent;
+}
+#siteNav .nav-toggle:active{ background:#d8ccac; }
+#siteNav .nav-toggle .bars{ font-size:14px; line-height:1; }
+
+#siteNav .nav-panel{
+  position:absolute; right:12px; top:56px;
+  width:300px; max-width:calc(100vw - 24px);
+  background:#fffdf6; border:1px solid #d8ccac; border-radius:12px;
+  box-shadow:0 8px 24px rgba(28,43,35,0.18);
+  padding:10px; display:none; max-height:80vh; overflow-y:auto;
+}
+#siteNav .nav-panel.open{ display:block; }
+#siteNav .nav-home{
+  display:block; padding:9px 10px; border-radius:8px; text-decoration:none;
+  color:#1c2b23; font-weight:700; font-size:13.5px; margin-bottom:4px;
+  border:1px solid #d8ccac; background:#efe6d0;
+}
+#siteNav .nav-group{ margin:10px 2px 4px; }
+#siteNav .nav-group-label{
+  font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.4px;
+  color:#b9902f; padding:0 8px; margin-bottom:4px;
+}
+#siteNav .nav-link{
+  display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:8px;
+  text-decoration:none; color:#1c2b23; font-size:13.5px; line-height:1.3;
+}
+#siteNav .nav-link:hover, #siteNav .nav-link:active{ background:#efe6d0; }
+#siteNav .nav-link .nav-dot{ width:6px; height:6px; border-radius:50%; background:#d8ccac; flex-shrink:0; }
+#siteNav .nav-link.active{ background:#efe6d0; font-weight:700; color:#7a2b23; }
+#siteNav .nav-link.active .nav-dot{ background:#7a2b23; }
+#siteNav .nav-backdrop{
+  position:fixed; inset:0; background:rgba(28,43,35,0.25); z-index:190; display:none;
+}
+#siteNav .nav-backdrop.open{ display:block; }
+</style>
+</head>
+<body>
+<nav id="siteNav">
+  <div class="nav-backdrop" id="navBackdrop"></div>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html"><span class="dot"></span>Koleksi Infografis Tajwid</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi"><span class="bars">&#9776;</span> Menu</button>
+  </div>
+  <div class="nav-panel" id="navPanel">
+    <a class="nav-home active" href="index.html">&#8962;&nbsp; Beranda — Semua Infografis</a><div class="nav-group"><div class="nav-group-label">Makharijul Huruf & Sifat-Sifatnya</div><a class="nav-link" href="infografis-makharijul-huruf-sifat.html"><span class="nav-dot"></span>Referensi Lengkap</a><a class="nav-link" href="infografis-makharijul-huruf-visual.html"><span class="nav-dot"></span>Peta Interaktif</a><a class="nav-link" href="infografis-sifat-huruf-hijaiyah.html"><span class="nav-dot"></span>Sifat — 3 Dimensi Fisik</a></div><div class="nav-group"><div class="nav-group-label">Ra’ — Tafkhim & Tarqiq</div><a class="nav-link" href="infografis-ra-tafkhim-tarqiq.html"><span class="nav-dot"></span>Referensi Lengkap</a><a class="nav-link" href="alur-ra-tafkhim-tarqiq.html"><span class="nav-dot"></span>Alur Berpikir (Flowchart)</a></div><div class="nav-group"><div class="nav-group-label">Hamzah Washal</div><a class="nav-link" href="hamzah-washal.html"><span class="nav-dot"></span>Alur Interaktif</a></div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header>
+    <div class="glyph">ر</div>
+    <h1>Koleksi Infografis Tajwid</h1>
+    <p>Kumpulan bahan rujukan belajar tajwid — hukum ra' tafkhim/tarqiq dan makharijul huruf beserta sifat-sifatnya, disusun sebagai referensi visual.</p>
+  </header>
+
+  <div class="section-label">Makharijul Huruf &amp; Sifat-Sifatnya</div>
+
+  <a class="card" href="infografis-makharijul-huruf-sifat.html">
+    <div class="icon makh">م</div>
+    <div class="body">
+      <h2>Makharijul Huruf &amp; Sifat-Sifatnya (Lengkap)</h2>
+      <p>29 huruf hijaiyah dikelompokkan menurut 5 makhraj utama, plus penjelasan sifat lewat 3 dimensi fisik: aliran nafas, aliran suara, dan posisi pangkal lidah.</p>
+      <div class="tags"><span class="tag">Referensi lengkap</span></div>
+    </div>
+    <div class="arrow">&rarr;</div>
+  </a>
+
+  <a class="card" href="infografis-makharijul-huruf-visual.html">
+    <div class="icon makh">&#128065;</div>
+    <div class="body">
+      <h2>Makharijul Huruf — Peta Interaktif</h2>
+      <p>Ilustrasi asli penampang mulut &amp; tenggorokan dari ebook — ketuk salah satu dari 10 titik makhraj untuk melihat detailnya, lalu ketuk hurufnya untuk melihat sifat-sifatnya.</p>
+      <div class="tags"><span class="tag">Interaktif</span><span class="tag">Ramah HP</span></div>
+    </div>
+    <div class="arrow">&rarr;</div>
+  </a>
+
+  <a class="card" href="infografis-sifat-huruf-hijaiyah.html">
+    <div class="icon sifat">&#128483;</div>
+    <div class="body">
+      <h2>Sifat-Sifat Huruf Hijaiyah — 3 Dimensi Fisik</h2>
+      <p>Penjelasan ringkas sifat huruf lewat aliran nafas (Jahr/Hams), aliran suara di makhraj (Syiddah/Bainiyyah/Rakhawah), dan posisi pangkal lidah (Isti'la/Istifal).</p>
+      <div class="tags"><span class="tag">Ringkas</span></div>
+    </div>
+    <div class="arrow">&rarr;</div>
+  </a>
+
+  <div class="section-label">Ra&rsquo; — Tafkhim &amp; Tarqiq</div>
+
+  <a class="card" href="infografis-ra-tafkhim-tarqiq.html">
+    <div class="icon ra">ر</div>
+    <div class="body">
+      <h2>Infografis Ra&rsquo; Tafkhim &amp; Tarqiq</h2>
+      <p>Rangkuman lengkap 8 kondisi tafkhim dan 4 kondisi tarqiq pada huruf ra&rsquo;, dengan contoh dari Al-Qur&rsquo;an, anatomi fisik, dan matriks 12 kondisi.</p>
+      <div class="tags"><span class="tag">Referensi lengkap</span></div>
+    </div>
+    <div class="arrow">&rarr;</div>
+  </a>
+
+  <a class="card" href="alur-ra-tafkhim-tarqiq.html">
+    <div class="icon flow">&#8595;</div>
+    <div class="body">
+      <h2>Alur Berpikir: Ra&rsquo; Tafkhim atau Tarqiq?</h2>
+      <p>Diagram keputusan 3 langkah untuk menentukan bacaan ra&rsquo; mana pun yang ditemui — dari harakat huruf hingga titik kritis kasrah palsu &amp; dinding isti'la.</p>
+      <div class="tags"><span class="tag">Flowchart</span></div>
+    </div>
+    <div class="arrow">&rarr;</div>
+  </a>
+
+  <div class="section-label">Hamzah Washal</div>
+
+  <a class="card" href="hamzah-washal.html">
+    <div class="icon hamzah">&#1649;</div>
+    <div class="body">
+      <h2>Hamzah Washal — Alur Interaktif</h2>
+      <p>Jawab Ya/Tidak langkah demi langkah untuk menentukan kapan hamzah washal tidak dibaca, dan harakat apa yang dipakai saat ia dibaca di awal kalimat.</p>
+      <div class="tags"><span class="tag">Interaktif</span><span class="tag">Ramah HP</span></div>
+    </div>
+    <div class="arrow">&rarr;</div>
+  </a>
+
+  <footer>Disusun dari ebook "Makharijul Huruf dan Sifat-Sifatnya" (Heri Suheri, Qothrunnadaa Learning Centre), infografis "Hamzah Washal" (Rumah Tajwid), dan rangkuman kaidah tajwid standar, sebagai bahan rujukan belajar.</footer>
+
+</div>
+<script>
+(function(){
+  var btn = document.getElementById('navToggle');
+  var panel = document.getElementById('navPanel');
+  var backdrop = document.getElementById('navBackdrop');
+  if(!btn || !panel) return;
+  function close(){ panel.classList.remove('open'); backdrop.classList.remove('open'); }
+  function toggle(){ panel.classList.toggle('open'); backdrop.classList.toggle('open'); }
+  btn.addEventListener('click', function(e){ e.stopPropagation(); toggle(); });
+  backdrop.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+})();
+</script>
+</body>
+</html>
